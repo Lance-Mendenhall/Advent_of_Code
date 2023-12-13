@@ -10,9 +10,6 @@ with open("paul.txt") as f:
 		master_map.append(line)
 
 
-# for x in master_map:
-# 	print(x)
-
 def print_map(mymap):
 	print()
 	for x in mymap:
@@ -24,19 +21,12 @@ def transpose_list_of_strings(mylist):
 	temp = []
 
 
-	# print("transpose map")
-	# print_map(mylist)
-	
-
 	for x in range(len(mylist[0])):
 		mystring = ""
 		for row in mylist:
 			mystring += row[x]
 
 		temp.append(mystring)
-
-	# print("transposed map")
-	# print_map(temp)
 
 	return temp
 
@@ -55,8 +45,6 @@ def horizontal_reflection(mymap):
 				possible_reflection_points.append(mymap_index)
 		mymap_index += 1
 
-	#print(possible_reflection_points)
-
 	bottom_limit = len(mymap)
 
 
@@ -68,9 +56,6 @@ def horizontal_reflection(mymap):
 		while not_done:
 			is_reflection = (mymap[upper_index] == mymap[lower_index]) and is_reflection
 
-			# print("upper index",mymap[upper_index])
-			# print("lower index",mymap[lower_index])
-			# print("is reflection",is_reflection)
 
 			if lower_index == bottom_limit - 1 or upper_index == 0:
 				not_done = False
@@ -81,9 +66,6 @@ def horizontal_reflection(mymap):
 			retval = x
 
 	return retval
-
-	
-
 
 # get current input - will need to keep track of index of list
 
@@ -103,9 +85,6 @@ while not_done:  # process all maps
 	#print("in big loop")
 
 	while current_map_not_done:
-
-		# print("current map index",current_map_index)
-		# print("master map index", master_map_index)
 
 		if master_map_index < len(master_map) and master_map[master_map_index] != "delimiter":
 			current_map.append(master_map[master_map_index])
@@ -129,26 +108,5 @@ while not_done:  # process all maps
 		vertical_reflection_index = horizontal_reflection(current_map)
 
 	grand_total += vertical_reflection_index + 100 * horizontal_reflection_index
-
-	# print("subtotal",grand_total)
-
-	
-
-	# print("\nmap number",map_counter)
-	# print()
-	# for x in current_map:
-	# 	print(x)
-	# print()
-	# print("horizontal_reflection_index",horizontal_reflection_index)
-	# print("vertical_reflection_index",vertical_reflection_index)
-	# print()
-
-	#vertical_reflection_index = 0
-
-
-	# master_map_index < len(master_map) and 
-
-	# if master_map_index >= len(master_map):
-	# 	not_done = False
 
 print("\ngrand total",grand_total)
